@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.tracoustools.Sala_act">
+
+    <TextView
+        android:id="@+id/tv_nombre"
+        style="@style/Text_views_sala"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/nombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="32dp" />
+
+    <EditText
+        android:id="@+id/et_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/tv_nombre"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="8dp" />
+
+    <TextView
+        android:id="@+id/tv_alto"
+        style="@style/Text_views_sala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:paddingBottom="8dp"
+        android:text="@string/alto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_nombre"
+        android:layout_marginLeft="32dp" />
+
+    <TextView
+        android:id="@+id/tv_ancho"
+        style="@style/Text_views_sala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:paddingBottom="8dp"
+        android:text="@string/ancho"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_alto"
+        android:layout_marginLeft="32dp" />
+
+    <TextView
+        android:id="@+id/tv_largo"
+        style="@style/Text_views_sala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:paddingBottom="8dp"
+        android:text="@string/largo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ancho"
+        android:layout_marginLeft="32dp" />
+
+    <EditText
+        android:id="@+id/et_ancho"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/tv_ancho"
+        app:layout_constraintTop_toBottomOf="@+id/et_alto"
+        android:layout_marginLeft="8dp" />
+
+    <EditText
+        android:id="@+id/et_alto"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/tv_alto"
+        app:layout_constraintTop_toBottomOf="@+id/et_nombre"
+        android:layout_marginLeft="8dp" />
+
+    <EditText
+        android:id="@+id/et_largo"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/tv_largo"
+        app:layout_constraintTop_toBottomOf="@+id/et_ancho"
+        android:layout_marginLeft="8dp" />
+
+    <Button
+        android:id="@+id/bt_calcvol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="60dp"
+        android:onClick="Calcular"
+        android:text="@string/calcvol"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/et_ancho"
+        app:layout_constraintTop_toBottomOf="@+id/et_nombre"
+        android:layout_marginLeft="60dp" />
+
+    <TextView
+        android:id="@+id/tv_volumen"
+        style="@style/Text_views_sala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/volumen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_largo"
+        android:layout_marginLeft="32dp" />
+
+    <TextView
+        android:id="@+id/tv_suptotal"
+        style="@style/Text_views_sala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/suptotal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_volumen"
+        android:layout_marginLeft="32dp" />
+
+    <EditText
+        android:id="@+id/et_volumen"
+        android:layout_width="77dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/tv_volumen"
+        app:layout_constraintTop_toBottomOf="@+id/tv_largo"
+        android:layout_marginLeft="8dp" />
+
+    <EditText
+        android:id="@+id/et_suptotal"
+        android:layout_width="79dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/tv_suptotal"
+        app:layout_constraintTop_toBottomOf="@+id/et_volumen"
+        android:layout_marginLeft="8dp" />
+
+    <TextView
+        android:id="@+id/tv_m3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/m3"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/et_volumen"
+        app:layout_constraintTop_toBottomOf="@+id/bt_calcvol"
+        android:layout_marginLeft="8dp" />
+
+    <TextView
+        android:id="@+id/tv_m2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="92dp"
+        android:text="@string/m2"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/et_suptotal"
+        app:layout_constraintTop_toBottomOf="@+id/bt_calcvol"
+        android:layout_marginLeft="8dp" />
+
+    <Button
+        android:id="@+id/bt_guardar"
+        android:layout_width="120dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="Guardar"
+        android:text="@string/guardar"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="32dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/m"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/et_alto"
+        app:layout_constraintTop_toBottomOf="@+id/et_nombre"
+        android:layout_marginLeft="8dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/m"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/et_ancho"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        android:layout_marginLeft="8dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/m"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/et_largo"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:layout_marginLeft="8dp" />
+
+    <Button
+        android:id="@+id/bt_borrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginStart="32dp"
+        android:onClick="Borrar"
+        android:text="@string/borrar"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="32dp" />
+
+</android.support.constraint.ConstraintLayout>

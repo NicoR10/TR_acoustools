@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">TR Acoustools</string>
+    <string name="sala">Sala</string>
+    <string name="SALA">SALA</string>
+    <string name="superficies">Superficies</string>
+    <string name="extras">Extras</string>
+    <string name="materiales">Materiales</string>
+    <string name="calcular">Calcular</string>
+    <string name="nombre">Nombre:</string>
+    <string name="alto">Alto:</string>
+    <string name="largo">Largo:</string>
+    <string name="ancho">Ancho:</string>
+    <string name="volumen">Volumen:</string>
+    <string name="suptotal">Superficie Total:</string>
+    <string name="calcvol">Calcular\nVolumen\ny\nSuperficie</string>
+    <string name="m">[m]</string>
+    <string name="m2">[m2]</string>
+    <string name="m3">[m3]</string>
+    <string name="guardar">Guardar</string>
+    <string name="borrar">Borrar\nTodo</string>
+</resources>
