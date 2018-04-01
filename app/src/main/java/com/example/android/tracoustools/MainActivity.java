@@ -1,5 +1,7 @@
 package com.example.android.tracoustools;
 
+import android.app.Activity;
+import android.app.Instrumentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -7,6 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +34,39 @@ public class MainActivity extends AppCompatActivity {
         TextView materiales = (TextView)findViewById(R.id.materiales);
         TextView calcular = (TextView)findViewById(R.id.calcular);
 
+//-----------copia el arhivo de datos de materiales de la carpeta raw al almacenamieto interno para poder leerlo en runtime
+        //stream de entrada con los datos de materiales en raw folder
+        InputStream in_data_mat = getResources().openRawResource(R.raw.materiales);
+        //creo buffer de lectura
+        BufferedReader lector_data_mat = new BufferedReader(new InputStreamReader(in_data_mat));
+        //creo un string builder para guardar el txt en un string
+        StringBuilder data_mat_leida = new StringBuilder();
+        //creo el string por linea y lo agrego al string del texto completo: data_mat_leida
+        String line;
+        try {
+            while ((line = lector_data_mat.readLine()) != null) {
+                data_mat_leida.append(line);
+                data_mat_leida.append(System.getProperty("line.separator"));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //creo un outputwriter para el almacenamieto interno
+
+        try {
+            OutputStreamWriter datos_mat = new OutputStreamWriter(openFileOutput("datos_mat.txt", Activity.MODE_PRIVATE));
+            datos_mat.write(data_mat_leida.toString());
+            datos_mat.flush();
+            //cierrotodo
+            datos_mat.close();
+            in_data_mat.close();
+            lector_data_mat.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//----------------------------------------
         //click listener sala
         sala.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //codigo on click
-                Toast.makeText(view.getContext(), "Superficies apretado", Toast.LENGTH_LONG).show();
+                Intent supintent = new Intent(view.getContext(), Superficies_act.class);
+                startActivity(supintent);
             }
         });
 

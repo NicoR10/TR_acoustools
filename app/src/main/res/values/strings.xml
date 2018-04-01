@@ -3,6 +3,7 @@
     <string name="sala">Sala</string>
     <string name="SALA">SALA</string>
     <string name="superficies">Superficies</string>
+    <string name="SUPERFICIES">SUPERFICIES</string>
     <string name="extras">Extras</string>
     <string name="materiales">Materiales</string>
     <string name="calcular">Calcular</string>
@@ -15,7 +16,14 @@
     <string name="calcvol">Calcular\nVolumen\ny\nSuperficie</string>
     <string name="m">[m]</string>
     <string name="m2">[m2]</string>
+    <string name="__m2">" [m2]"</string>
     <string name="m3">[m3]</string>
     <string name="guardar">Guardar</string>
     <string name="borrar">Borrar\nTodo</string>
+    <string name="lado1">Lado 1:</string>
+    <string name="lado2">Lado 2:</string>
+    <string name="Calc_area">Calcular\nÁrea</string>
+    <string name="area">Área:</string>
+    <string name="material">Material:</string>
+    <string name="nueva_sup">Nueva Superficie</string>
 </resources>

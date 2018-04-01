@@ -1,0 +1,36 @@
+--
+Concreto liso sin pintar
+0.01 0.01 0.02 0.02 0.02 0.05
+Superficie de concreto con terminación lisa, suave y sin pintar.
+--
+Mármol
+0.01 0.01 0.01 0.02 0.02 0.02
+Superficie de mármol liso, usualmente utilizado en pisos.
+--
+Cerámica
+0.01 0.01 0.01 0.02 0.02 0.02
+Pisos y paredes de cerámica lisa, sin porosidad ni rugosidad.
+--
+Paredes promedio
+0.02 0.02 0.03 0.03 0.04 0.05
+Superficies duras promedio: Paredes de ladrillo, yeso, pisos duros.
+--
+Pared de ladrillo revocada
+0.01 0.02 0.02 0.03 0.03 0.04
+Pared o superficie standard de ladrillo con revoque de cemento.
+--
+aaaaa
+--
+bbbb
+--
+ccc
+--
+dd
+--
+ee
+--
+ff
+--
+gg
+--
+hh

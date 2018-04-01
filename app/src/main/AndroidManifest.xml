@@ -19,8 +19,16 @@
         <activity
             android:name=".Sala_act"
             android:label="@string/SALA"
-            android:theme="@style/SalaTheme"
-            />
+            android:theme="@style/SalaTheme" />
+        <activity
+            android:name=".Superficies_act"
+            android:label="@string/SUPERFICIES"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".NuevaSup_act"
+            android:label="@string/nueva_sup"
+            android:theme="@style/nuevasupTheme">
+
+        </activity>
     </application>
 
 </manifest>
