@@ -1,22 +1,19 @@
 package com.example.android.tracoustools;
 
-import android.content.Context;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
 public class Superficies_act extends AppCompatActivity {
 
@@ -35,7 +32,7 @@ public class Superficies_act extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), NuevaSup_act.class);
-                startActivityForResult(i, 2);
+                startActivityForResult(i, 1);
             }
         });
 
@@ -44,10 +41,11 @@ public class Superficies_act extends AppCompatActivity {
         toast.show();
         }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 2){
+        if(requestCode == 1){
             if(resultCode == RESULT_OK){
                 nueva_sup =(Superficie) data.getSerializableExtra("nuevasup");
                 sups.add(nueva_sup);
@@ -69,14 +67,43 @@ public class Superficies_act extends AppCompatActivity {
                 Toast.makeText(this, "Superficie agregada con éxito", Toast.LENGTH_LONG).show();
 //------creacion de adapter para actualizar la vista luego de la primer superficie agregada.
                 //creo el adapter personalizado
-                SuperficiesAdapter adapter = new SuperficiesAdapter(this, sups);
+                final SuperficiesAdapter adapter = new SuperficiesAdapter(this, sups);
 
                 //creo y asocio la listview donde se veran los objetos
                 ListView list = (ListView)findViewById(R.id.sup_listview);
 
                 //le seteo el adapter
                 list.setAdapter(adapter);
-                //--------------
+
+                // Setea un click largo en cada vista
+                list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                    @Override
+                    public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int pos, long l) {
+                        //crea una alerta y elimina la vista-----
+                        // setup the alert builder
+                        AlertDialog.Builder builder = new AlertDialog.Builder(adapterView.getContext());
+                        builder.setTitle("¡Atención!");
+                        builder.setMessage("¿Desea eliminar la superficie?");
+
+                        // add the buttons and listener
+                        builder.setNegativeButton("Cancelar", null);
+                        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //elimina la vista
+                                adapter.remove(adapter.getItem(pos));
+                                adapter.notifyDataSetChanged();
+                            }
+                        });
+
+
+                        // create and show the alert dialog
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                        //------
+                        return true;
+                    }
+                });
 
             }
         }
