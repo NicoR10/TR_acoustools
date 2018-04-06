@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:padding="16dp"
-    android:background="@color/grisclaro">
+    android:background="@color/grisclaro"
+    android:longClickable="true">
 
     <TextView
         android:layout_width="wrap_content"

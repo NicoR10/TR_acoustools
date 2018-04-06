@@ -19,18 +19,10 @@ Pared de ladrillo revocada
 0.01 0.02 0.02 0.03 0.03 0.04
 Pared o superficie standard de ladrillo con revoque de cemento.
 --
-aaaaa
+Vidrio (3mm)
+0.08 0.04 0.03 0.03 0.02 0.02
+Panel de vidrio simple de 3mm.
 --
-bbbb
---
-ccc
---
-dd
---
-ee
---
-ff
---
-gg
---
-hh
+Alfombra (Fina)
+0.02 0.04 0.08 0.20 0.35 0.40
+Alfombra liviana sobre concreto.

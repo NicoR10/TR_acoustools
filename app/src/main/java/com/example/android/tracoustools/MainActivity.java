@@ -16,11 +16,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private Sala sala_datos;
+    ArrayList<Superficie> sups = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +84,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //codigo on click
                 Intent supintent = new Intent(view.getContext(), Superficies_act.class);
-                startActivity(supintent);
+                if(!sups.isEmpty()){
+                    supintent.putExtra("sups", sups);
+                }
+                getIntent().putExtra("suptotal", sala_datos.getSuptotal());
+                startActivityForResult(supintent, 2);
+
             }
         });
 
@@ -119,6 +126,14 @@ public class MainActivity extends AppCompatActivity {
                 sala_datos =(Sala) data.getSerializableExtra("salaguardada");
                 //Toast.makeText(this, "Sala guardada con éxito" +'\n'+sala_datos.toString(), Toast.LENGTH_LONG).show();
                 Snackbar mySnackbar = Snackbar.make(findViewById(R.id.sala),"Sala guardada con éxito", Snackbar.LENGTH_LONG);
+                mySnackbar.show();
+            }
+        }
+        if(requestCode == 2){
+            if(resultCode == RESULT_OK){
+                sups = (ArrayList<Superficie>) data.getSerializableExtra("sups");
+                //Toast.makeText(this, "Sala guardada con éxito" +'\n'+sala_datos.toString(), Toast.LENGTH_LONG).show();
+                Snackbar mySnackbar = Snackbar.make(findViewById(R.id.sala),"Superficies guardadas con éxito", Snackbar.LENGTH_LONG);
                 mySnackbar.show();
             }
         }

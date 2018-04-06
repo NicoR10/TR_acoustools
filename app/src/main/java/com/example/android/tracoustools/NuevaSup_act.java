@@ -19,6 +19,7 @@ public class NuevaSup_act extends AppCompatActivity {
 
     Spinner sp_materiales;
     EditText et_area;
+    double suptotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,10 @@ public class NuevaSup_act extends AppCompatActivity {
 
         sp_materiales = (Spinner)findViewById(R.id.spinner_mat);
         et_area = (EditText)findViewById(R.id.et_area);
+
+        //seteo el valor de la superficie total q viene de superficies activity
+        Intent intent = getIntent();
+        suptotal = intent.getDoubleExtra("suptotal", 0);
 
         //-----obtengo el arreglo de strings de los materiales
         ArrayList<String> materiales_spinner = new ArrayList<>();

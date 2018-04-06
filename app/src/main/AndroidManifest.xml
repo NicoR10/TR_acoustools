@@ -23,7 +23,8 @@
         <activity
             android:name=".Superficies_act"
             android:label="@string/SUPERFICIES"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity android:name=".NuevaSup_act"
             android:label="@string/nueva_sup"
             android:theme="@style/nuevasupTheme">
