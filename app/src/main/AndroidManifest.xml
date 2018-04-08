@@ -19,7 +19,8 @@
         <activity
             android:name=".Sala_act"
             android:label="@string/SALA"
-            android:theme="@style/SalaTheme" />
+            android:theme="@style/SalaTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Superficies_act"
             android:label="@string/SUPERFICIES"
@@ -27,7 +28,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".NuevaSup_act"
             android:label="@string/nueva_sup"
-            android:theme="@style/nuevasupTheme">
+            android:theme="@style/nuevasupTheme"
+            android:screenOrientation="portrait">
 
         </activity>
     </application>

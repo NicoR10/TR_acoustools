@@ -13,6 +13,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase BaseDeDatos) {
 
         BaseDeDatos.execSQL("create table superficies(material varchar(255) primary key, area double(5,2))");
+        BaseDeDatos.execSQL("create table materiales(material varchar(255) primary key, oct125 double(1,2), oct250 double(1,2), oct500 double(1,2), oct1k double(1,2), oct2k double(1,2), oct4k double(1,2), descripcion varchar(255))");
 
     }
 

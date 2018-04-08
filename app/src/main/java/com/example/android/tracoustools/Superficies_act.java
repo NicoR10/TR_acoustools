@@ -43,7 +43,7 @@ public class Superficies_act extends AppCompatActivity {
             }
         });
         //chequeo si el intent tien un extra y seteo el adapter
-        Intent intent = getIntent();
+        Intent intent = this.getIntent();
         //seteo la superficie total que viene del mainactivity
         suptotal = intent.getDoubleExtra("suptotal", 0);
 
@@ -76,6 +76,9 @@ public class Superficies_act extends AppCompatActivity {
                     builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
+                            //actualiza el valor de superficie restante
+                            double area_agr = adapter.getItem(pos).getArea();
+                            suptotal+=area_agr;
                             //elimina la vista
                             adapter.remove(adapter.getItem(pos));
                             adapter.notifyDataSetChanged();
@@ -108,6 +111,7 @@ public class Superficies_act extends AppCompatActivity {
             if(resultCode == RESULT_OK){
                 nueva_sup =(Superficie) data.getSerializableExtra("nuevasup");
                 sups.add(nueva_sup);
+                suptotal = data.getDoubleExtra("suptotal", 0);
                 //verifica si dos materiales estan repetidos y los suma en un solo objeto
                 for (int i = 0; i < sups.size(); i++) {
                     for (int j = i+1; j < sups.size(); j++) {
@@ -149,6 +153,9 @@ public class Superficies_act extends AppCompatActivity {
                         builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+                                //actualiza suptotal
+                                double area = adapter.getItem(pos).getArea();
+                                actializarSuptotal(area);
                                 //elimina la vista
                                 adapter.remove(adapter.getItem(pos));
                                 adapter.notifyDataSetChanged();
@@ -173,7 +180,12 @@ public class Superficies_act extends AppCompatActivity {
 
         Intent i = new Intent(this, MainActivity.class);
         i.putExtra("sups", sups);
+        i.putExtra("suptotal", suptotal);
         setResult(RESULT_OK, i);
         finish();
+    }
+
+    public void actializarSuptotal(double area){
+        suptotal+=area;
     }
 }

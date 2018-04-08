@@ -1,7 +1,9 @@
 package com.example.android.tracoustools;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Instrumentation;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Sala sala_datos;
     ArrayList<Superficie> sups = new ArrayList<>();
+    private double suptotal = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,17 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 //----------------------------------------
+        //-----------almaceno todos los materiales en una base de datos
+
+        try {
+            //stream de entrada con los datos de materiales en raw folder
+            InputStream data_mat = getResources().openRawResource(R.raw.materiales);
+            CargaDeMateriales.cargar(data_mat, this);
+            data_mat.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //------------------------bd
         //click listener sala
         sala.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,14 +97,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //codigo on click
-                Intent supintent = new Intent(view.getContext(), Superficies_act.class);
-                if(!sups.isEmpty()){
-                    supintent.putExtra("sups", sups);
-                }
-                getIntent().putExtra("suptotal", sala_datos.getSuptotal());
-                startActivityForResult(supintent, 2);
 
+                if (sala_datos != null) {
+                    Intent supintent = new Intent(view.getContext(), Superficies_act.class);
+                    if (!sups.isEmpty()) {
+                        supintent.putExtra("sups", sups);
+                    }
+                    if (suptotal != 0) {
+                        supintent.putExtra("suptotal", suptotal);
+                    } else {
+                        double suptotal = sala_datos.getSuptotal();
+                        supintent.putExtra("suptotal", suptotal);
+                    }
+                    startActivityForResult(supintent, 2);
+
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Ingrese los datos de la sala", Toast.LENGTH_SHORT).show();
+                }
             }
+
         });
 
         // click listener extras
@@ -132,10 +158,34 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == 2){
             if(resultCode == RESULT_OK){
                 sups = (ArrayList<Superficie>) data.getSerializableExtra("sups");
-                //Toast.makeText(this, "Sala guardada con éxito" +'\n'+sala_datos.toString(), Toast.LENGTH_LONG).show();
+                suptotal = data.getDoubleExtra("suptotal",0);
                 Snackbar mySnackbar = Snackbar.make(findViewById(R.id.sala),"Superficies guardadas con éxito", Snackbar.LENGTH_LONG);
                 mySnackbar.show();
             }
         }
     }
+
+    @Override
+    public void onBackPressed() {
+
+        // setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Salir");
+        builder.setMessage("Si sale se perderán los datos de las superficies. ¿Desea continuar?");
+
+        // add the buttons and listener
+        builder.setNegativeButton("Cancelar", null);
+        builder.setPositiveButton("Salir", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //sale de la app
+                finish();
+            }
+        });
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
 }

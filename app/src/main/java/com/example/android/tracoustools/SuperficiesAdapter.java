@@ -44,7 +44,9 @@ public class SuperficiesAdapter extends ArrayAdapter<Superficie> {
         TextView areaTextView = (TextView) listItemView.findViewById(R.id.sup_area);
         // Get the area from the current Superficie object and
         // set this text on the area TextView
-        areaTextView.setText(String.valueOf(currentSup.getArea()));
+        double area = currentSup.getArea();
+        area = Math.round(area*100.00)/100.00;
+        areaTextView.setText(String.valueOf(area));
 
         // Return the whole list item layout (containing 3 TextViews)
         // so that it can be shown in the ListView

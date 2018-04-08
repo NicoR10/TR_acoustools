@@ -1,28 +1,72 @@
 --
+Alfombra (Fina)
+0.02
+0.04
+0.08
+0.20
+0.35
+0.40
+Alfombra liviana sobre concreto.
+--
+Cerámica
+0.01
+0.01
+0.01
+0.02
+0.02
+0.02
+Pisos y paredes de cerámica lisa, sin porosidad ni rugosidad.
+--
 Concreto liso sin pintar
-0.01 0.01 0.02 0.02 0.02 0.05
+0.01
+0.01
+0.02
+0.02
+0.02
+0.05
 Superficie de concreto con terminación lisa, suave y sin pintar.
 --
 Mármol
-0.01 0.01 0.01 0.02 0.02 0.02
+0.01
+0.01
+0.01
+0.02
+0.02
+0.02
 Superficie de mármol liso, usualmente utilizado en pisos.
 --
-Cerámica
-0.01 0.01 0.01 0.02 0.02 0.02
-Pisos y paredes de cerámica lisa, sin porosidad ni rugosidad.
---
-Paredes promedio
-0.02 0.02 0.03 0.03 0.04 0.05
-Superficies duras promedio: Paredes de ladrillo, yeso, pisos duros.
+Panel Fonoabsorbente Acustec/Sonex (25mm)
+0.05
+0.2
+0.35
+0.55
+0.8
+0.83
+Panel fonoabsorbente Acustec "Vision" 25 mm. (Sonex) (1m2)
 --
 Pared de ladrillo revocada
-0.01 0.02 0.02 0.03 0.03 0.04
+0.01
+0.02
+0.02
+0.03
+0.03
+0.04
 Pared o superficie standard de ladrillo con revoque de cemento.
 --
-Vidrio (3mm)
-0.08 0.04 0.03 0.03 0.02 0.02
-Panel de vidrio simple de 3mm.
+Paredes promedio
+0.02
+0.02
+0.03
+0.03
+0.04
+0.05
+Superficies duras promedio: Paredes de ladrillo, yeso, pisos duros.
 --
-Alfombra (Fina)
-0.02 0.04 0.08 0.20 0.35 0.40
-Alfombra liviana sobre concreto.
+Vidrio (3mm)
+0.08
+0.04
+0.03
+0.03
+0.02
+0.02
+Panel de vidrio simple de 3mm.

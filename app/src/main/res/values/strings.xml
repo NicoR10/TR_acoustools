@@ -25,6 +25,9 @@
     <string name="Calc_area">Calcular\nÁrea</string>
     <string name="area">Área:</string>
     <string name="material">Material:</string>
+    <string name="detalles">Detalles:</string>
+    <string name="Coefab">Coeficientes de absorción:</string>
+    <string name="Supsalarestante">Superficie de sala restante:</string>
     <string name="nueva_sup">Nueva Superficie</string>
     <string name="oct125">125 Hz.</string>
     <string name="oct250">250 Hz.</string>
@@ -32,4 +35,5 @@
     <string name="oct1000">1 KHz.</string>
     <string name="oct2000">2 KHz.</string>
     <string name="oct4000">4 KHz.</string>
+    <string name="exc">(Excedido)</string>
 </resources>
